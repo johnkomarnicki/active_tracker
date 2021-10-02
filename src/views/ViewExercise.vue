@@ -13,7 +13,7 @@
       class="p-8 rounded-md flex flex-col items-center bg-light-grey shadow-md relative"
     >
       <!-- Edit / Delete Icons -->
-      <div class="flex absolute left-2 top-2 gap-x-2">
+      <div v-if="user" class="flex absolute left-2 top-2 gap-x-2">
         <div
           class="h-7 w-7 rounded-full flex justify-center items-center cursor-pointer bg-at-light-green shadow-lg"
           @click="editMode"
@@ -230,14 +230,16 @@
 <script>
 import { useRoute, useRouter } from "vue-router";
 import { supabase } from "../supabase/init";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { uid } from "uid";
+import store from "../store/index";
 export default {
   setup() {
     const route = useRoute();
     const router = useRouter();
     const statusMsg = ref(null);
     const errorMsg = ref(null);
+    const user = computed(() => store.state.user);
 
     // Get current Id of route, use to obtain data
     // from supabase
@@ -357,6 +359,7 @@ export default {
       deleteExercise,
       statusMsg,
       errorMsg,
+      user,
     };
   },
 };
