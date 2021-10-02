@@ -5,27 +5,11 @@
 <script>
 export default {
   setup() {
-    const router = useRouter();
-    const email = ref(null);
-    const password = ref(null);
-    const confirmPassword = ref(null);
+    // Create data / vars
 
-    const login = async () => {
-      if (password.value === confirmPassword.value) {
-        try {
-          const { error } = await supabase.auth.signUp({
-            email: email.value,
-            password: password.value,
-          });
-          if (error) throw error;
-          router.push({ name: "Home" });
-        } catch (error) {
-          console.warn(error.message);
-        }
-      }
-    };
+    // Register function
 
-    return { email, password, confirmPassword, login };
+    return {};
   },
 };
 </script>
