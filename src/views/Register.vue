@@ -1,7 +1,11 @@
 <template>
   <div class="max-w-screen-sm mx-auto px-4 py-10">
+    <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-light-grey">
+      <p class="text-red-500">{{ errorMsg }}</p>
+    </div>
+
     <form
-      @submit.prevent="login"
+      @submit.prevent="register"
       class="p-8 flex flex-col bg-light-grey rounded-lg shadow-lg"
     >
       <h1 class="text-3xl text-at-light-green mb-4 ">Register</h1>
@@ -20,7 +24,7 @@
         <input
           required
           class="p-2 text-gray-500 focus:outline-none"
-          type="text"
+          type="password"
           id="password"
           v-model="password"
         />
@@ -32,7 +36,7 @@
         <input
           required
           class="p-2 text-gray-500 focus:outline-none"
-          type="text"
+          type="password"
           id="confirm-password"
           v-model="confirmPassword"
         />
@@ -61,8 +65,9 @@ export default {
     const email = ref(null);
     const password = ref(null);
     const confirmPassword = ref(null);
+    const errorMsg = ref(null);
 
-    const login = async () => {
+    const register = async () => {
       if (password.value === confirmPassword.value) {
         try {
           const { error } = await supabase.auth.signUp({
@@ -70,14 +75,20 @@ export default {
             password: password.value,
           });
           if (error) throw error;
-          router.push({ name: "Home" });
+          router.push({ name: "Login" });
         } catch (error) {
-          console.warn(error.message);
+          console.log(error);
+          errorMsg.value = error.message;
         }
+        return;
       }
+      errorMsg.value = "Error: Passwords do not match.";
+      setTimeout(() => {
+        errorMsg.value = null;
+      }, 5000);
     };
 
-    return { email, password, confirmPassword, login };
+    return { email, password, confirmPassword, register, errorMsg };
   },
 };
 </script>

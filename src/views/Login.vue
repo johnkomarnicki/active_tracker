@@ -1,5 +1,9 @@
 <template>
   <div class="max-w-screen-sm mx-auto px-4 py-10">
+    <div v-if="errorMsg" class="mb-10 p-4 rounded-md bg-light-grey">
+      <p class="text-red-500">{{ errorMsg }}</p>
+    </div>
+
     <form
       @submit.prevent="login"
       class="p-8 flex flex-col bg-light-grey rounded-lg shadow-lg"
@@ -20,7 +24,7 @@
         <input
           required
           class="p-2 text-gray-500 focus:outline-none"
-          type="text"
+          type="password"
           id="password"
           v-model="password"
         />
@@ -48,16 +52,22 @@ export default {
     const router = useRouter();
     const email = ref(null);
     const password = ref(null);
+    const errorMsg = ref(null);
 
     const login = async () => {
-      await supabase.auth.signIn({
-        email: email.value,
-        password: password.value,
-      });
-      router.push({ name: "Home" });
+      try {
+        const { error } = await supabase.auth.signIn({
+          email: email.value,
+          password: password.value,
+        });
+        if (error) throw error;
+        router.push({ name: "Home" });
+      } catch (error) {
+        errorMsg.value = `Error: ${error.message}`;
+      }
     };
 
-    return { email, password, login };
+    return { email, password, login, errorMsg };
   },
 };
 </script>
