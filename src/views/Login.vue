@@ -3,10 +3,8 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import { supabase } from "../supabase/init";
 export default {
+  name: "login",
   setup() {
     // Create data / vars
 

@@ -4,11 +4,11 @@
 
 <script>
 export default {
+  name: "view-workout",
   setup() {
     // Create data / vars
 
     // Get current Id of route
-    const currentId = route.params.id;
 
     // Get workout data
 
