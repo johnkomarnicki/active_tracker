@@ -4,7 +4,7 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Create from "../views/Create.vue";
-import ViewExercise from "../views/ViewExercise.vue";
+import ViewWorkout from "../views/ViewWorkout.vue";
 
 const routes = [
   {
@@ -12,8 +12,8 @@ const routes = [
     name: "Home",
     component: Home,
     meta: {
-      auth: false,
       title: "Home",
+      auth: false,
     },
   },
   {
@@ -21,8 +21,8 @@ const routes = [
     name: "Login",
     component: Login,
     meta: {
-      auth: false,
       title: "Login",
+      auth: false,
     },
   },
   {
@@ -39,17 +39,17 @@ const routes = [
     name: "Create",
     component: Create,
     meta: {
-      auth: true,
       title: "Create",
+      auth: true,
     },
   },
   {
-    path: "/view-exercise/:id",
-    name: "view-exercise",
-    component: ViewExercise,
+    path: "/view-workout/:workoutId",
+    name: "View-Workout",
+    component: ViewWorkout,
     meta: {
-      auth: false,
       title: "View Workout",
+      auth: false,
     },
   },
 ];
@@ -59,11 +59,13 @@ const router = createRouter({
   routes,
 });
 
+// Change document titles
 router.beforeEach((to, from, next) => {
   document.title = `${to.meta.title} | Active Tracker`;
   next();
 });
 
+// Route guard for auth routes
 router.beforeEach((to, from, next) => {
   const user = supabase.auth.user();
   if (to.matched.some((res) => res.meta.auth)) {

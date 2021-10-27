@@ -6,14 +6,16 @@
 </template>
 
 <script>
-import { supabase } from "./supabase/init";
-import { ref } from "vue";
-import store from "./store/index";
 import Navigation from "./components/Navigation.vue";
-
+import { ref } from "vue";
+import { supabase } from "./supabase/init";
+import store from "./store/index";
 export default {
-  components: { Navigation },
+  components: {
+    Navigation,
+  },
   setup() {
+    // Create data / vars
     const appReady = ref(null);
 
     // Check to see if user is already logged in
