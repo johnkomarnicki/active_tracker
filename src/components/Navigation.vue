@@ -6,13 +6,12 @@
         <h1 class="text-lg">Active Tracker</h1>
       </div>
       <ul class="flex flex-1 justify-end gap-x-10">
-        <router-link class="cursor-pointer" :to="{ name: 'Home' }">Home</router-link>
+        <router-link v-if="user" class="cursor-pointer" :to="{ name: 'Home' }">Home</router-link>
         <router-link v-if="user" class="cursor-pointer" :to="{ name: 'Create' }"
           >Create</router-link
         >
-        <router-link v-if="!user" class="cursor-pointer" :to="{ name: 'Login' }"
-          >Login</router-link
-        >
+        <router-link v-if="!user" class="cursor-pointer" :to="{ name: 'Login' }">Login</router-link>
+        <router-link v-if="!user" class="cursor-pointer" :to="{ name: 'Register' }">Register</router-link>
         <li v-if="user" @click="logout" class="cursor-pointer">Logout</li>
       </ul>
     </nav>
