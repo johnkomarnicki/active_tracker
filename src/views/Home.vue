@@ -5,9 +5,9 @@
       <h1 class="text-2xl">Looks empty here...</h1>
       <router-link
         class="mt-6 py-2 px-6 rounded-sm  text-sm
-      text-white bg-at-light-green duration-200 border-solid
-      border-2 border-transparent hover:border-at-light-green hover:bg-white
-      hover:text-at-light-green"
+      text-white bg-black duration-200 border-solid
+      border-2 border-transparent hover:border-black hover:bg-white
+      hover:text-black"
         :to="{ name: 'Create' }"
         >Create Workout</router-link
       >
@@ -27,7 +27,7 @@
         <!-- Cardio Img -->
         <img
           v-if="workout.workoutType === 'cardio'"
-          src="@/assets/images/running-light-green.png"
+          src="@/assets/images/running-black.png"
           class="h-24 w-auto"
           alt=""
         />
@@ -35,18 +35,18 @@
         <!-- Strength Training -->
         <img
           v-else
-          src="@/assets/images/dumbbell-light-green.png"
+          src="@/assets/images/dumbbell-black.png"
           class="h-24 w-auto"
           alt=""
         />
 
         <p
-          class="mt-6 py-1 px-3 text-xs text-white bg-at-light-green shadow-md rounded-lg"
+          class="mt-6 py-1 px-3 text-xs text-white bg-black shadow-md rounded-lg"
         >
           {{ workout.workoutType }}
         </p>
 
-        <h1 class="mt-8 mb-2 text-center text-xl text-at-light-green">
+        <h1 class="mt-8 mb-2 text-center text-xl text-black">
           {{ workout.workoutName }}
         </h1>
       </router-link>

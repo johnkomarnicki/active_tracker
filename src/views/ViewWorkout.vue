@@ -1,11 +1,11 @@
 <template>
-  <div class="max-w-screen-sm mx-auto px-4 py-10">
+  <div class="max-w-screen-lg mx-auto px-4 py-10">
     <!-- App Msg -->
     <div
       v-if="statusMsg || errorMsg"
       class="mb-10 p-4 rounded-md shadow-md bg-light-grey"
     >
-      <p class="text-at-light-green">
+      <p class="text-black">
         {{ statusMsg }}
       </p>
       <p class="text-red-500">
@@ -22,7 +22,7 @@
         <div v-if="user" class="flex absolute left-2 top-2 gap-x-2">
           <div
             class="h-7 w-7 rounded-full flex justify-center items-center cursor-pointer
-        bg-at-light-green shadow-lg"
+        bg-black shadow-lg"
             @click="editMode"
           >
             <img class="h-3.5 w-auto" src="@/assets/images/pencil-light.png" alt="" />
@@ -30,7 +30,7 @@
           <div
             @click="deleteWorkout"
             class="h-7 w-7 rounded-full flex justify-center items-center cursor-pointer
-        bg-at-light-green shadow-lg"
+        bg-black shadow-lg"
           >
             <img class="h-3.5 w-auto" src="@/assets/images/trash-light.png" alt="" />
           </div>
@@ -38,20 +38,20 @@
 
         <img
           v-if="data.workoutType === 'cardio'"
-          class="h-24 w-auto"
-          src="@/assets/images/running-light-green.png"
+          class="h-28 w-auto"
+          src="@/assets/images/running-black.png"
           alt=""
         />
 
         <img
           v-else
-          class="h-24 w-auto"
-          src="@/assets/images/dumbbell-light-green.png"
+          class="h-28 w-auto"
+          src="@/assets/images/dumbbell-black.png"
           alt=""
         />
 
         <span
-          class="mt-6 py-1.5 px-5 text-xs text-white bg-at-light-green
+          class="mt-6 py-1.5 px-5 text-xs text-white bg-black
         rounded-lg shadow-md"
         >
           {{ data.workoutType }}
@@ -64,7 +64,7 @@
             class="p-2 w-full text-gray-500 focus:outline-none"
             v-model="data.workoutName"
           />
-          <h1 v-else class="text-at-light-green text-2xl text-center">
+          <h1 v-else class="text-black text-2xl text-center">
             {{ data.workoutName }}
           </h1>
         </div>
@@ -83,7 +83,7 @@
             :key="index"
           >
             <div class="flex flex-2 flex-col md:w-1/3">
-              <label for="exercise-name" class="mb-1 text-sm text-at-light-green">
+              <label for="exercise-name" class="mb-1 text-sm text-black">
                 Exercise
               </label>
               <input
@@ -96,7 +96,7 @@
               <p v-else>{{ item.exercise }}</p>
             </div>
             <div class="flex flex-1 flex-col">
-              <label for="sets" class="mb-1 text-sm text-at-light-green">
+              <label for="sets" class="mb-1 text-sm text-black">
                 Sets
               </label>
               <input
@@ -109,7 +109,7 @@
               <p v-else>{{ item.sets }}</p>
             </div>
             <div class="flex flex-1 flex-col">
-              <label for="reps" class="mb-1 text-sm text-at-light-green">
+              <label for="reps" class="mb-1 text-sm text-black">
                 Reps
               </label>
               <input
@@ -122,7 +122,7 @@
               <p v-else>{{ item.reps }}</p>
             </div>
             <div class="flex flex-1 flex-col">
-              <label for="weight" class="mb-1 text-sm text-at-light-green">
+              <label for="weight" class="mb-1 text-sm text-black">
                 Weight (LB's)
               </label>
               <input
@@ -138,7 +138,7 @@
               v-if="edit"
               @click="deleteExercise(item.id)"
               class="absolute h-4 w-auto -left-5 cursor-pointer"
-              src="@/assets/images/trash-light-green.png"
+              src="@/assets/images/trash-black.png"
               alt=""
             />
           </div>
@@ -147,8 +147,8 @@
             @click="addExercise"
             type="button"
             class="py-2 px-6 rounded-sm self-start text-sm text-white
-            bg-at-light-green duration-200 border-solid border-2 border-transparent
-            hover:border-at-light-green hover:bg-white hover:text-at-light-green"
+            bg-black duration-200 border-solid border-2 border-transparent
+            hover:border-black hover:bg-white hover:text-black"
           >
             Add Exercise
           </button>
@@ -162,7 +162,7 @@
             :key="index"
           >
             <div class="flex flex-2 flex-col md:w-1/3">
-              <label for="cardioType" class="mb-1 text-sm text-at-light-green">
+              <label for="cardioType" class="mb-1 text-sm text-black">
                 Type
               </label>
               <select
@@ -179,7 +179,7 @@
               <p v-else>{{ item.cardioType }}</p>
             </div>
             <div class="flex flex-1 flex-col">
-              <label for="distance" class="mb-1 text-sm text-at-light-green">
+              <label for="distance" class="mb-1 text-sm text-black">
                 Distance
               </label>
               <input
@@ -192,7 +192,7 @@
               <p v-else>{{ item.distance }}</p>
             </div>
             <div class="flex flex-1 flex-col">
-              <label for="duration" class="mb-1 text-sm text-at-light-green">
+              <label for="duration" class="mb-1 text-sm text-black">
                 Duration
               </label>
               <input
@@ -205,7 +205,7 @@
               <p v-else>{{ item.duration }}</p>
             </div>
             <div class="flex flex-1 flex-col">
-              <label for="pace" class="mb-1 text-sm text-at-light-green">
+              <label for="pace" class="mb-1 text-sm text-black">
                 Pace
               </label>
               <input
@@ -221,7 +221,7 @@
               @click="deleteExercise(item.id)"
               v-if="edit"
               class="absolute h-4 w-auto -left-5 cursor-pointer"
-              src="@/assets/images/trash-light-green.png"
+              src="@/assets/images/trash-black.png"
               alt=""
             />
           </div>
@@ -230,8 +230,8 @@
             v-if="edit"
             type="button"
             class="py-2 px-6 rounded-sm self-start text-sm text-white
-            bg-at-light-green duration-200 border-solid border-2 border-transparent
-            hover:border-at-light-green hover:bg-white hover:text-at-light-green"
+            bg-black duration-200 border-solid border-2 border-transparent
+            hover:border-black hover:bg-white hover:text-black"
           >
             Add Exercise
           </button>
@@ -244,8 +244,8 @@
         @click="update"
         type="button"
         class="mt-10 py-2 px-6 rounded-sm self-start text-sm text-white
-            bg-at-light-green duration-200 border-solid border-2 border-transparent
-            hover:border-at-light-green hover:bg-white hover:text-at-light-green"
+            bg-black duration-200 border-solid border-2 border-transparent
+            hover:border-black hover:bg-white hover:text-black"
       >
         Update Workout
       </button>

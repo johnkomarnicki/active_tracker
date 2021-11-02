@@ -1,11 +1,11 @@
 <template>
-  <div class="max-w-screen-md mx-auto px-4 py-10">
+  <div class="max-w-screen-xl mx-auto px-4 py-10">
     <!-- Status Message -->
     <div
       v-if="statusMsg || errorMsg"
       class="mb-10 p-4 bg-light-grey rounded-md shadow-lg"
     >
-      <p class="text-at-light-green">
+      <p class="text-black">
         {{ statusMsg }}
       </p>
       <p class="text-red-500">{{ errorMsg }}</p>
@@ -15,11 +15,11 @@
     <div class="p-8 flex items-start bg-light-grey rounded-md shadow-lg">
       <!-- Form -->
       <form @submit.prevent="createWorkout" class="flex flex-col gap-y-5 w-full">
-        <h1 class="text-2xl text-at-light-green">Record Workout</h1>
+        <h1 class="text-2xl text-black">Record Workout</h1>
 
         <!-- Workout Name -->
         <div class="flex flex-col">
-          <label for="workout-name" class="mb-1 text-sm text-at-light-green"
+          <label for="workout-name" class="mb-1 text-sm text-black"
             >Workout Name</label
           >
           <input
@@ -33,7 +33,7 @@
 
         <!-- Workout Type -->
         <div class="flex flex-col">
-          <label for="workout-type" class="mb-1 text-sm text-at-light-green"
+          <label for="workout-type" class="mb-1 text-sm text-black"
             >Workout Type</label
           >
           <select
@@ -57,7 +57,7 @@
             :key="index"
           >
             <div class="flex flex-col md:w-1/3">
-              <label for="exercise-name" class="mb-1 text-sm text-at-light-green"
+              <label for="exercise-name" class="mb-1 text-sm text-black"
                 >Exercise
               </label>
               <input
@@ -68,7 +68,7 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="sets" class="mb-1 text-sm text-at-light-green">Sets </label>
+              <label for="sets" class="mb-1 text-sm text-black">Sets </label>
               <input
                 required
                 type="text"
@@ -77,7 +77,7 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="reps" class="mb-1 text-sm text-at-light-green">Reps </label>
+              <label for="reps" class="mb-1 text-sm text-black">Reps </label>
               <input
                 required
                 type="text"
@@ -86,7 +86,7 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="weight" class="mb-1 text-sm text-at-light-green"
+              <label for="weight" class="mb-1 text-sm text-black"
                 >Weight (LB's)
               </label>
               <input
@@ -98,7 +98,7 @@
             </div>
             <img
               @click="deleteExercise(item.id)"
-              src="@/assets/images/trash-light-green.png"
+              src="@/assets/images/trash-black.png"
               class="h-4 w-auto absolute -left-5 cursor-pointer"
               alt=""
             />
@@ -107,9 +107,9 @@
             @click="addExercise"
             type="button"
             class="mt-6 py-2 px-6 rounded-sm self-start text-sm
-      text-white bg-at-light-green duration-200 border-solid
-      border-2 border-transparent hover:border-at-light-green hover:bg-white
-      hover:text-at-light-green"
+      text-white bg-black duration-200 border-solid
+      border-2 border-transparent hover:border-black hover:bg-white
+      hover:text-black"
           >
             Add Exercise
           </button>
@@ -123,7 +123,7 @@
             :key="index"
           >
             <div class="flex flex-col md:w-1/3">
-              <label for="cardio-type" class="mb-1 text-sm text-at-light-green"
+              <label for="cardio-type" class="mb-1 text-sm text-black"
                 >Type
               </label>
               <select
@@ -137,7 +137,7 @@
               </select>
             </div>
             <div class="flex flex-col flex-1">
-              <label for="distance" class="mb-1 text-sm text-at-light-green"
+              <label for="distance" class="mb-1 text-sm text-black"
                 >Distance
               </label>
               <input
@@ -148,7 +148,7 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="duration" class="mb-1 text-sm text-at-light-green"
+              <label for="duration" class="mb-1 text-sm text-black"
                 >Duration
               </label>
               <input
@@ -159,7 +159,7 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="pace" class="mb-1 text-sm text-at-light-green">Pace </label>
+              <label for="pace" class="mb-1 text-sm text-black">Pace </label>
               <input
                 required
                 type="text"
@@ -169,7 +169,7 @@
             </div>
             <img
               @click="deleteExercise(item.id)"
-              src="@/assets/images/trash-light-green.png"
+              src="@/assets/images/trash-black.png"
               class="h-4 w-auto absolute -left-5 cursor-pointer"
               alt=""
             />
@@ -178,9 +178,9 @@
             @click="addExercise"
             type="button"
             class="mt-6 py-2 px-6 rounded-sm self-start text-sm
-      text-white bg-at-light-green duration-200 border-solid
-      border-2 border-transparent hover:border-at-light-green hover:bg-white
-      hover:text-at-light-green"
+      text-white bg-black duration-200 border-solid
+      border-2 border-transparent hover:border-black hover:bg-white
+      hover:text-black"
           >
             Add Exercise
           </button>
@@ -189,9 +189,9 @@
         <button
           type="submit"
           class="mt-6 py-2 px-6 rounded-sm self-start text-sm
-      text-white bg-at-light-green duration-200 border-solid
-      border-2 border-transparent hover:border-at-light-green hover:bg-white
-      hover:text-at-light-green"
+      text-white bg-black duration-200 border-solid
+      border-2 border-transparent hover:border-black hover:bg-white
+      hover:text-black"
         >
           Record Workout
         </button>
@@ -264,7 +264,7 @@ export default {
           },
         ]);
         if (error) throw error;
-        statusMsg.value = "Succes: Workout Created!";
+        statusMsg.value = "Success: Workout Created!";
         workoutName.value = null;
         workoutType.value = "select-workout";
         exercises.value = [];
