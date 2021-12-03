@@ -16,6 +16,7 @@
         <label for="email" class="mb-1 text-sm text-at-light-green">Email</label>
         <input
           type="text"
+          autocomplete="email"
           required
           class="p-2 text-gray-500 focus:outline-none"
           id="email"
@@ -27,6 +28,7 @@
         <label for="password" class="mb-1 text-sm text-at-light-green">Password</label>
         <input
           type="password"
+          autocomplete="current-password"
           required
           class="p-2 text-gray-500 focus:outline-none"
           id="password"
